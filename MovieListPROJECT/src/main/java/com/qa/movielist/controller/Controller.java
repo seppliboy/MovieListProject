@@ -28,7 +28,7 @@ public class Controller {
 	@PostMapping("/createMovie") 
 	public ResponseEntity<String> createMovie(@RequestBody MovieList movie) {
 		boolean checkMethod = service.createMovie(movie);  // unused variable(?)
-		ResponseEntity<String> response = new ResponseEntity<String>(" Movie added, ID number: " + movie.getId(), HttpStatus.CREATED);
+		ResponseEntity<String> response = new ResponseEntity<String>("Movie added, ID number: " + movie.getId(), HttpStatus.CREATED);
 		return response;
 	}
 	
@@ -59,7 +59,7 @@ public class Controller {
 	@GetMapping("/deleteAllMovies")
 	public ResponseEntity<String> deleteAllMovies() {
 		service.deleteAllMovies();
-		ResponseEntity<String> response = new ResponseEntity<String>("All Bookings Removed!", HttpStatus.ACCEPTED);
+		ResponseEntity<String> response = new ResponseEntity<String>("All Movies Removed!", HttpStatus.ACCEPTED);
 		return response;
 	}
 	
@@ -67,7 +67,7 @@ public class Controller {
 	@PutMapping("/updateById/{id}")
 	public ResponseEntity<String> update(@PathVariable("id")int id, @RequestBody MovieList movie) {
 		service.updateById(id, movie);
-		ResponseEntity<String> response = new ResponseEntity<String>("Updated booking id: " + id, HttpStatus.OK);
+		ResponseEntity<String> response = new ResponseEntity<String>("Updated Movie Id: " + id, HttpStatus.OK);
 		return response;
 	}
 	
