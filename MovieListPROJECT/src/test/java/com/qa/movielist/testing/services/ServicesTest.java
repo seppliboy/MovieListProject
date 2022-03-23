@@ -1,5 +1,7 @@
 package com.qa.movielist.testing.services;
 
+import static org.mockito.Mockito.mockitoSession;
+
 import java.util.List;
 
 import java.util.Optional;
@@ -93,4 +95,37 @@ public class ServicesTest {
 		//Assert
 		Assertions.assertTrue(result);
 	}
+	
+	@Test public void testDeleteById() throws Exception {
+		
+		//Arrange
+		Mockito.when(repo.findById(2l)).thenReturn(Optional.of(testMovie2));
+		
+		//Act
+		boolean result = service.deleteById(2l);
+		
+		//Assert
+		
+		Assertions.assertTrue(result);
+		
+		Mockito.verify(repo, Mockito.atLeastOnce()).deleteById(2l);
+	}
+	
+	@Test public void testDeleteAll() throws Exception {
+		
+		//Arrange
+		Mockito.when(repo.findById(2l)).thenReturn(Optional.of(testMovie2));
+		
+		//Act
+		boolean result = service.deleteAllMovies();
+		
+		//Assert		
+		Assertions.assertTrue(result);
+		
+		Mockito.verify(repo, Mockito.atLeastOnce()).deleteAll();
+	}
+	
+	
+	
+	
 }
