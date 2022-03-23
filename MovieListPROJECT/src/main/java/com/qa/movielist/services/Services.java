@@ -61,20 +61,79 @@ public class Services {
 		repo.save(oldMovie);
 			
 			return true;
-		}
+	}
 		
 		// [CUSTOM QUERIES]
 		
 		// Show by title
-//		public List<MovieList> getByTitle(String title) {
-//			return repo.findByTitle(country);
-//		}
+		public List<MovieList> getByTitle(String title) {
+			return repo.findByTitle(title);
+		}
 		
 		// Show by title ascending
+		public List<MovieList> getByTitleAsc() {
+			return repo.findByOrderByTitleAsc();
+		}
 		
 		// Show by title descending
+		public List<MovieList> getByTitleDesc() {
+			return repo.findByOrderByTitleDesc();
+		}
 		
-		//
+		// Show by genre
+		public List<MovieList> getByGenre(String title) {
+			return repo.findByGenre(title);
+		}
+		
+		// Show by genre ascending
+		public List<MovieList> getByGenreAsc() {
+			return repo.findByOrderByGenreAsc();
+		}
+		
+		// Show by genre descending
+		public List<MovieList> getByGenreDesc() {
+			return repo.findByOrderByGenreDesc();
+		}
+		
+		// Show by running time
+		public List<MovieList> getByRunningTime(int runningTime) {
+			return repo.findByRunningTime(runningTime);
+		}
+		
+		// Show by running time ascending
+		public List<MovieList> getByRunningTimeAsc() {
+			return repo.findByOrderByRunningTimeAsc();
+		}
+		
+		// Show by running time descending
+		public List<MovieList> getByRunningTimeDesc() {
+			return repo.findByOrderByRunningTimeAsc();
+		}
+		
+		// Show by running time greater than
+		public List<MovieList> getByRunningTimeGreaterThan(int runningTime) {
+			return repo.findByRunningTimeGreaterThan(runningTime);
+		}
+		
+		// Show by running time less than
+		public List<MovieList> getByRunningTimeLessThan(int runningTime) {
+			return repo.findByRunningTimeLessThan(runningTime);
+		}
+		
+		// Show by release year
+		
+		
+		// Show by release year ascending
+		
+		
+		// Show by release year descending
+		
+		
+		// Show by release year greater than
+
+		
+		// Show by release year less than
+
 			
 		
 

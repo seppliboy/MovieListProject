@@ -66,7 +66,6 @@ public class ControllerTest {
 		
 		//Assert
 		mvc.perform(request).andExpect(checkStatus).andExpect(checkBody);
-		
 	}
 	
 	@Test
@@ -147,7 +146,6 @@ public class ControllerTest {
 		
 		//Assert
 		mvc.perform(request).andExpect(checkStatus).andExpect(checkBody);
-		
 	}
 	
 	

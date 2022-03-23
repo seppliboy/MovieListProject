@@ -71,7 +71,15 @@ public class Controller {
 		return response;
 	}
 	
-	// [Custom queries]
+	// Custom queries
+	
+	// Get by title
+	
+	@GetMapping("getByTitle/{title}")
+	public ResponseEntity<List<MovieList>> getByTitle(@PathVariable("title") String title) {
+		List<MovieList> response = service.getByTitle(title);
+		return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
+	}
 		
 	
 	

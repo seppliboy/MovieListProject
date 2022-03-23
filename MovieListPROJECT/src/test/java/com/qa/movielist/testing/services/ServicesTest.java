@@ -17,6 +17,7 @@ import com.qa.movielist.repo.Repo;
 import com.qa.movielist.services.Services;
 
 @SpringBootTest
+//@ActiveProfiles("test")
 public class ServicesTest {
 
 	@MockBean
