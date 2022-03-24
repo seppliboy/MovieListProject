@@ -32,9 +32,6 @@ public interface Repo extends JpaRepository<MovieList, Long> {
 
 	// Watched
 	public List<MovieList> findByWatched(boolean watched);
-	public List<MovieList> findByOrderByWatchedAsc();
-	public List<MovieList> findByOrderByWatchedDesc();
-	
 	
 //	public List<MovieList> findByOrderByRunningTimeGreaterThanAsc(int runningTime);	(?)
 //	public List<MovieList> findByRunningTimeGreaterThanDesc(int runningTime);	 (?)

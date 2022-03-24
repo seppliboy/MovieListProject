@@ -107,7 +107,7 @@ public class Services {
 		
 		// Show by running time descending
 		public List<MovieList> getByRunningTimeDesc() {
-			return repo.findByOrderByRunningTimeAsc();
+			return repo.findByOrderByRunningTimeDesc();
 		}
 		
 		// Show by running time greater than
@@ -121,20 +121,33 @@ public class Services {
 		}
 		
 		// Show by release year
-		
+		public List<MovieList> getByReleaseYear(int releaseYear) {
+			return repo.findByReleaseYear(releaseYear);
+		}
 		
 		// Show by release year ascending
-		
+		public List<MovieList> getByReleaseYearAsc() {
+			return repo.findByOrderByReleaseYearAsc();
+		}
 		
 		// Show by release year descending
-		
+		public List<MovieList> getByReleaseYearDesc() {
+			return repo.findByOrderByReleaseYearDesc();
+		}
 		
 		// Show by release year greater than
-
+		public List<MovieList> getByReleaseYearGreaterThan(int releaseYear) {
+			return repo.findByReleaseYearGreaterThan(releaseYear);
+		}
 		
 		// Show by release year less than
-
-			
+		public List<MovieList> getByReleaseYearLessThan(int releaseYear) {
+			return repo.findByReleaseYearLessThan(releaseYear);
+		}
 		
+		// Show by watched
+		public List<MovieList> getByWatched(boolean watched) {
+			return repo.findByWatched(watched);
+		}
 
 }

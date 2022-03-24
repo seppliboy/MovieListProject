@@ -43,14 +43,14 @@ public class ControllerTest {
 	MovieList testMovie1 = new MovieList("TestMovie1", "TestGenre1", 100, 1985, false);
 	MovieList testMovie2 = new MovieList("TestMovie2", "TestGenre2", 80, 1965, false);
 	MovieList testMovie3 = new MovieList("TestMovie3", "TestGenre4", 120, 2020, false);
-	MovieList testMovie4 = new MovieList("TestMovie4", "TestGenre4", 90, 2005, false);
-	MovieList testMovie5 = new MovieList("TestMovie5", "TestGenre5", 50, 1936, false);
+	MovieList testMovie4 = new MovieList("TestMovie4", "TestGenre4", 130, 2005, false);
+	MovieList testMovie5 = new MovieList("TestMovie5", "TestGenre5", 140, 1936, false);
 	
 	MovieList testMovie1Id = new MovieList(1, "TestMovie1", "TestGenre1", 100, 1985, false);
 	MovieList testMovie2Id = new MovieList(2, "TestMovie2", "TestGenre2", 80, 1965, false);
 	MovieList testMovie3Id = new MovieList(3, "TestMovie3", "TestGenre4", 120, 2020, false);
-	MovieList testMovie4Id = new MovieList(4, "TestMovie4", "TestGenre4", 90, 2005, false);
-	MovieList testMovie5Id = new MovieList(5, "TestMovie5", "TestGenre5", 50, 1936, false);
+	MovieList testMovie4Id = new MovieList(4, "TestMovie4", "TestGenre4", 130, 2005, false);
+	MovieList testMovie5Id = new MovieList(5, "TestMovie5", "TestGenre5", 140, 1936, false);
 	
 	
 	@Test
@@ -148,6 +148,295 @@ public class ControllerTest {
 		mvc.perform(request).andExpect(checkStatus).andExpect(checkBody);
 	}
 	
+	
+	@Test
+	public void GetByTitleTest() throws Exception {
+		
+		//Arrange
+		List<MovieList> movieList = List.of(testMovie1Id);
+		
+		String movieListToJson = mapper.writeValueAsString(movieList);
+		
+		//Act
+		RequestBuilder request = get("/getByTitle/TestMovie1");
+		ResultMatcher checkStatus = status().isAccepted();
+		ResultMatcher checkBody = content().json(movieListToJson);
+		
+		//
+		mvc.perform(request).andExpect(checkStatus).andExpect(checkBody);
+	}
+	
+	@Test
+	public void GetByTitleAscTest() throws Exception {
+		
+		//Arrange
+		List<MovieList> movieList = List.of(testMovie1Id, testMovie2Id);
+		
+		String movieListToJson = mapper.writeValueAsString(movieList);
+		
+		//Act
+		RequestBuilder request = get("/getByTitleAsc");
+		ResultMatcher checkStatus = status().isAccepted();
+		ResultMatcher checkBody = content().json(movieListToJson);
+		
+		//
+		mvc.perform(request).andExpect(checkStatus).andExpect(checkBody);
+	}
+	
+	@Test
+	public void GetByTitleDescTest() throws Exception {
+		
+		//Arrange
+		List<MovieList> movieList = List.of(testMovie2Id, testMovie1Id);
+		
+		String movieListToJson = mapper.writeValueAsString(movieList);
+		
+		//Act
+		RequestBuilder request = get("/getByTitleDesc");
+		ResultMatcher checkStatus = status().isAccepted();
+		ResultMatcher checkBody = content().json(movieListToJson);
+		
+		//
+		mvc.perform(request).andExpect(checkStatus).andExpect(checkBody);
+	}
+	
+	@Test
+	public void GetByGenreTest() throws Exception {
+		
+		//Arrange
+		List<MovieList> movieList = List.of(testMovie1Id);
+		
+		String movieListToJson = mapper.writeValueAsString(movieList);
+		
+		//Act
+		RequestBuilder request = get("/getByGenre/TestGenre1");
+		ResultMatcher checkStatus = status().isAccepted();
+		ResultMatcher checkBody = content().json(movieListToJson);
+		
+		//
+		mvc.perform(request).andExpect(checkStatus).andExpect(checkBody);
+	}
+	
+	@Test
+	public void GetByGenreAscTest() throws Exception {
+		
+		//Arrange
+		List<MovieList> movieList = List.of(testMovie1Id, testMovie2Id);
+		
+		String movieListToJson = mapper.writeValueAsString(movieList);
+		
+		//Act
+		RequestBuilder request = get("/getByGenreAsc");
+		ResultMatcher checkStatus = status().isAccepted();
+		ResultMatcher checkBody = content().json(movieListToJson);
+		
+		//
+		mvc.perform(request).andExpect(checkStatus).andExpect(checkBody);
+	}
+	
+	@Test
+	public void GetByGenreDescTest() throws Exception {
+		
+		//Arrange
+		List<MovieList> movieList = List.of(testMovie2Id, testMovie1Id);
+		
+		String movieListToJson = mapper.writeValueAsString(movieList);
+		
+		//Act
+		RequestBuilder request = get("/getByGenreDesc");
+		ResultMatcher checkStatus = status().isAccepted();
+		ResultMatcher checkBody = content().json(movieListToJson);
+		
+		//
+		mvc.perform(request).andExpect(checkStatus).andExpect(checkBody);
+	}
+	
+	@Test
+	public void GetByRunningTimeTest() throws Exception {
+		
+		//Arrange
+		List<MovieList> movieList = List.of(testMovie1Id);
+		
+		String movieListToJson = mapper.writeValueAsString(movieList);
+		
+		//Act
+		RequestBuilder request = get("/getByRunningTime/100");
+		ResultMatcher checkStatus = status().isAccepted();
+		ResultMatcher checkBody = content().json(movieListToJson);
+		
+		//
+		mvc.perform(request).andExpect(checkStatus).andExpect(checkBody);
+	}
+	
+	@Test
+	public void GetByRunningTimeAscTest() throws Exception {
+		
+		//Arrange
+		List<MovieList> movieList = List.of(testMovie1Id, testMovie2Id);
+		
+		String movieListToJson = mapper.writeValueAsString(movieList);
+		
+		//Act
+		RequestBuilder request = get("/getByRunningTimeAsc");
+		ResultMatcher checkStatus = status().isAccepted();
+		ResultMatcher checkBody = content().json(movieListToJson);
+		
+		//
+		mvc.perform(request).andExpect(checkStatus).andExpect(checkBody);
+	}
+	
+	@Test
+	public void GetByRunningTimeDescTest() throws Exception {
+		
+		//Arrange
+		List<MovieList> movieList = List.of(testMovie2Id, testMovie1Id);
+		
+		String movieListToJson = mapper.writeValueAsString(movieList);
+		
+		//Act
+		RequestBuilder request = get("/getByRunningTimeDesc");
+		ResultMatcher checkStatus = status().isAccepted();
+		ResultMatcher checkBody = content().json(movieListToJson);
+		
+		//
+		mvc.perform(request).andExpect(checkStatus).andExpect(checkBody);
+	}
+	
+	@Test
+	public void GetByRunningTimeDescGreaterThan() throws Exception {
+		
+		//Arrange
+		List<MovieList> movieList = List.of(testMovie2Id, testMovie1Id);
+		
+		String movieListToJson = mapper.writeValueAsString(movieList);
+		
+		//Act
+		RequestBuilder request = get("/getByRunningTimeGreaterThan/79");
+		ResultMatcher checkStatus = status().isAccepted();
+		ResultMatcher checkBody = content().json(movieListToJson);
+		
+		//
+		mvc.perform(request).andExpect(checkStatus).andExpect(checkBody);
+	}
+	
+	@Test
+	public void GetByRunningTimeDescLessThan() throws Exception {
+		
+		//Arrange
+		List<MovieList> movieList = List.of(testMovie2Id, testMovie1Id);
+		
+		String movieListToJson = mapper.writeValueAsString(movieList);
+		
+		//Act
+		RequestBuilder request = get("/getByRunningTimeLessThan/101");
+		ResultMatcher checkStatus = status().isAccepted();
+		ResultMatcher checkBody = content().json(movieListToJson);
+		
+		//
+		mvc.perform(request).andExpect(checkStatus).andExpect(checkBody);
+	}
+	
+	@Test
+	public void GetByReleaseYearTest() throws Exception {
+		
+		//Arrange
+		List<MovieList> movieList = List.of(testMovie1Id);
+		
+		String movieListToJson = mapper.writeValueAsString(movieList);
+		
+		//Act
+		RequestBuilder request = get("/getByReleaseYear/1985");
+		ResultMatcher checkStatus = status().isAccepted();
+		ResultMatcher checkBody = content().json(movieListToJson);
+		
+		//
+		mvc.perform(request).andExpect(checkStatus).andExpect(checkBody);
+	}
+	
+	@Test
+	public void GetByReleaseYearAscTest() throws Exception {
+		
+		//Arrange
+		List<MovieList> movieList = List.of(testMovie1Id, testMovie2Id);
+		
+		String movieListToJson = mapper.writeValueAsString(movieList);
+		
+		//Act
+		RequestBuilder request = get("/getByReleaseYearAsc");
+		ResultMatcher checkStatus = status().isAccepted();
+		ResultMatcher checkBody = content().json(movieListToJson);
+		
+		//
+		mvc.perform(request).andExpect(checkStatus).andExpect(checkBody);
+	}
+	
+	@Test
+	public void GetByReleaseYearDescTest() throws Exception {
+		
+		//Arrange
+		List<MovieList> movieList = List.of(testMovie2Id, testMovie1Id);
+		
+		String movieListToJson = mapper.writeValueAsString(movieList);
+		
+		//Act
+		RequestBuilder request = get("/getByReleaseYearDesc");
+		ResultMatcher checkStatus = status().isAccepted();
+		ResultMatcher checkBody = content().json(movieListToJson);
+		
+		//
+		mvc.perform(request).andExpect(checkStatus).andExpect(checkBody);
+	}
+	
+	@Test
+	public void GetByReleaseYearDescGreaterThan() throws Exception {
+		
+		//Arrange
+		List<MovieList> movieList = List.of(testMovie2Id, testMovie1Id);
+		
+		String movieListToJson = mapper.writeValueAsString(movieList);
+		
+		//Act
+		RequestBuilder request = get("/getByReleaseYearGreaterThan/1964");
+		ResultMatcher checkStatus = status().isAccepted();
+		ResultMatcher checkBody = content().json(movieListToJson);
+		
+		//
+		mvc.perform(request).andExpect(checkStatus).andExpect(checkBody);
+	}
+	
+	@Test
+	public void GetByReleaseYearDescLessThan() throws Exception {
+		
+		//Arrange
+		List<MovieList> movieList = List.of(testMovie2Id, testMovie1Id);
+		
+		String movieListToJson = mapper.writeValueAsString(movieList);
+		
+		//Act
+		RequestBuilder request = get("/getByReleaseYearLessThan/1986");
+		ResultMatcher checkStatus = status().isAccepted();
+		ResultMatcher checkBody = content().json(movieListToJson);
+		
+		//
+		mvc.perform(request).andExpect(checkStatus).andExpect(checkBody);
+	}
+	
+	@Test
+	public void GetByWatched() throws Exception {
+		
+		//Arrange
+		List<MovieList> movieList = List.of(testMovie1Id, testMovie2Id);
+		
+		String movieListToJson = mapper.writeValueAsString(movieList);
+		
+		//Act
+		RequestBuilder request = get("/getByWatched/false");
+		ResultMatcher checkStatus = status().isAccepted();
+		ResultMatcher checkBody = content().json(movieListToJson);
+		
+		//
+		mvc.perform(request).andExpect(checkStatus).andExpect(checkBody);
+	}
 	
 	
 	

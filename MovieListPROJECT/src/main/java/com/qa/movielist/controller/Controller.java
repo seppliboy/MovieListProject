@@ -80,7 +80,109 @@ public class Controller {
 		List<MovieList> response = service.getByTitle(title);
 		return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
 	}
-		
 	
+	@GetMapping("/getByTitleAsc")
+	public ResponseEntity<List<MovieList>> getByTitleAsc() {
+		List<MovieList> response = service.getByTitleAsc();
+		return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
+	}
+	
+	@GetMapping("/getByTitleDesc")
+	public ResponseEntity<List<MovieList>> getByTitleDesc() {
+		List<MovieList> response = service.getByTitleDesc();
+		return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
+	}
+	
+	// Get by genre
+	
+	@GetMapping("/getByGenre/{genre}")
+	public ResponseEntity<List<MovieList>> getByGenre(@PathVariable("genre") String genre) {
+		List<MovieList> response = service.getByGenre(genre);
+		return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
+	}
+	
+	@GetMapping("/getByGenreAsc")
+	public ResponseEntity<List<MovieList>> getByGenreAsc() {
+		List<MovieList> response = service.getByGenreAsc();
+		return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
+	}
+	
+	@GetMapping("/getByGenreDesc")
+	public ResponseEntity<List<MovieList>> getByGenreDesc() {
+		List<MovieList> response = service.getByGenreDesc();
+		return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
+	}
+	
+	// Get by running time
+	
+	@GetMapping("/getByRunningTime/{runningTime}")
+	public ResponseEntity<List<MovieList>> getByRunningTime(@PathVariable("runningTime") int runningTime) {
+		List<MovieList> response = service.getByRunningTime(runningTime);
+		return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
+	}
+	
+	@GetMapping("/getByRunningTimeAsc")
+	public ResponseEntity<List<MovieList>> getByRunningTimeAsc() {
+		List<MovieList> response = service.getByRunningTimeAsc();
+		return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
+	}
+	
+	@GetMapping("/getByRunningTimeDesc")
+	public ResponseEntity<List<MovieList>> getByRunningTimeDesc() {
+		List<MovieList> response = service.getByRunningTimeDesc();
+		return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
+	}
+	
+	@GetMapping("/getByRunningTimeGreaterThan/{runningTime}")
+	public ResponseEntity<List<MovieList>> getByRunningTimeGreaterThan(@PathVariable("runningTime") int runningTime) {
+		List<MovieList> response = service.getByRunningTimeGreaterThan(runningTime);
+		return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
+	}
+	
+	@GetMapping("/getByRunningTimeLessThan/{runningTime}")
+	public ResponseEntity<List<MovieList>> getByRunningTimeLessThan(@PathVariable("runningTime") int runningTime) {
+		List<MovieList> response = service.getByRunningTimeLessThan(runningTime);
+		return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
+	}
+	
+	// Get by release year
+	
+	@GetMapping("/getByReleaseYear/{releaseYear}")
+	public ResponseEntity<List<MovieList>> getByReleaseYear(@PathVariable("releaseYear") int releaseYear) {
+		List<MovieList> response = service.getByReleaseYear(releaseYear);
+		return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
+	}
+	
+	@GetMapping("/getByReleaseYearAsc")
+	public ResponseEntity<List<MovieList>> getByReleaseYearAsc() {
+		List<MovieList> response = service.getByReleaseYearAsc();
+		return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
+	}
+	
+	@GetMapping("/getByReleaseYearDesc")
+	public ResponseEntity<List<MovieList>> getByReleaseYearDesc() {
+		List<MovieList> response = service.getByReleaseYearDesc();
+		return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
+	}
+	
+	@GetMapping("/getByReleaseYearGreaterThan/{releaseYear}")
+	public ResponseEntity<List<MovieList>> getByReleaseYearGreaterThan(@PathVariable("releaseYear") int releaseYear) {
+		List<MovieList> response = service.getByReleaseYearGreaterThan(releaseYear);
+		return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
+	}
+	
+	@GetMapping("/getByReleaseYearLessThan/{releaseYear}")
+	public ResponseEntity<List<MovieList>> getByReleaseYearLessThan(@PathVariable("releaseYear") int releaseYear) {
+		List<MovieList> response = service.getByReleaseYearLessThan(releaseYear);
+		return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
+	}
+	
+	// Get by watched
+	
+	@GetMapping("/getByWatched/{watched}")
+	public ResponseEntity<List<MovieList>> getByWatched(@PathVariable("watched") boolean watched) {
+		List<MovieList> response = service.getByWatched(watched);
+		return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
+	}
 	
 }
