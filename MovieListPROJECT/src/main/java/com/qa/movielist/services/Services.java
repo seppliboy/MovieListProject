@@ -2,8 +2,8 @@ package com.qa.movielist.services;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
 
+import org.springframework.stereotype.Service;
 import com.qa.movielist.model.MovieList;
 import com.qa.movielist.repo.Repo;
 
@@ -149,5 +149,4 @@ public class Services {
 		public List<MovieList> getByWatched(boolean watched) {
 			return repo.findByWatched(watched);
 		}
-
 }

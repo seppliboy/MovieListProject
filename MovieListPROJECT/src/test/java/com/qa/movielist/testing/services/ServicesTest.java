@@ -12,12 +12,14 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.ActiveProfiles;
+
 import com.qa.movielist.model.MovieList;
 import com.qa.movielist.repo.Repo;
 import com.qa.movielist.services.Services;
 
 @SpringBootTest
-//@ActiveProfiles("test")
+@ActiveProfiles("test")
 public class ServicesTest {
 
 	@MockBean
@@ -409,10 +411,5 @@ public class ServicesTest {
 		Assertions.assertEquals(movie, testMovieList);
 		
 		Mockito.verify(repo, Mockito.never()).count();
-	}
-	
-	
-	
-	
-	
+	}	
 }

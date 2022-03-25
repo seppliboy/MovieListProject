@@ -2,6 +2,7 @@ package com.qa.movielist.controller;
 
 import java.util.List;
 
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -184,5 +185,5 @@ public class Controller {
 		List<MovieList> response = service.getByWatched(watched);
 		return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
 	}
-	
+
 }

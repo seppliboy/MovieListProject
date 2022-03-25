@@ -4,8 +4,8 @@ CREATE TABLE movie_list(
 id long AUTO_INCREMENT, 
 title VARCHAR(30) NOT NULL,
 genre VARCHAR(30) NOT NULL,
-running_time int NOT NULL,
-release_year int NOT NULL,
+running_Time int NOT NULL,
+release_Year int NOT NULL,
 watched boolean NOT NULL,
 PRIMARY KEY (id)
 );
